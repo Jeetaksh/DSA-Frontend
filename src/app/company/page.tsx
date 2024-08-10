@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import CompanyInd from '@/webcomponents/company/companyInd';
+import CompanyInd from '@/webcomponents/company/CompanyInd';
 import { useUser } from '@clerk/clerk-react';
 
 const Page = () => {

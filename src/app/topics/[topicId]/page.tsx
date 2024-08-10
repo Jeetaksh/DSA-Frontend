@@ -3,7 +3,7 @@ import IndQuestion from '@/webcomponents/Questions/IndQuestion'
 import React ,{useEffect,useState} from 'react'
 import { useParams } from 'next/navigation'
 
-const page = () => {
+const Page = () => {
   const para=useParams();
     const topicId = para.topicId;
     console.log(topicId);
@@ -47,4 +47,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

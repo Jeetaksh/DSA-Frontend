@@ -41,7 +41,7 @@ const SearchQuestionsPage = () => {
     <div className='bg-black min-h-screen'>
       <div className='flex flex-col gap-5 pt-10'>
         {questions.length === 0 ? (
-          <div className="text-center text-white">No questions found for the title "{title}"</div>
+          <div className="text-center text-white">No questions found for the title &quot;{title}&quot;</div>
         ) : (
           questions.map((question) => (
             <IndQuestion key={question.id} id={question.id} name={question.name} link={question.link} />
