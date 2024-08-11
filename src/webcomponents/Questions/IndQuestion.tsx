@@ -200,11 +200,10 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
   };
 
   return (
-    <div className="flex flex-row justify-evenly items-center p-6 flex-wrap align-middle bg-gray-800 rounded-lg shadow-lg ">
-     
-      <a target="_blank" href={`${link}`}>
+    <div className="flex flex-row justify-evenly items-center p-6 flex-wrap align-middle bg-gray-800 rounded-lg shadow-lg">
+      <a target="_blank" href={`${link}`} className="w-64">
         <ShineBorder
-          className="bg-black text-white mb-4"
+          className="bg-black text-white mb-4 title"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
           {name}
@@ -248,8 +247,7 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-          <div className="flex items-center gap-4 ">
-
+          <div className="flex items-center gap-4">
             <input
               type="checkbox"
               id="terms"
@@ -258,6 +256,18 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
               className="form-checkbox h-5 w-5 text-blue-600"
             />
           </div>
+          <Button
+            onClick={handleStarClick}
+            className={`p-2 rounded-full ${
+              isMarkedForRevision ? "bg-yellow-400" : "bg-gray-500"
+            } hover:${isMarkedForRevision ? "bg-yellow-500" : "bg-gray-600"}`}
+          >
+            {isMarkedForRevision ? (
+              <FaStar size={24} className="text-yellow-600" />
+            ) : (
+              <FaRegStar size={24} className="text-gray-300" />
+            )}
+          </Button>
         </div>
       )}
       {!isProfile && (
@@ -285,15 +295,15 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
           </PopoverContent>
         </Popover>
       )}
-      {!isProfile && (
-        <div onClick={handleStarClick} className="cursor-pointer">
-          {isMarkedForRevision ? (
-            <FaStar size={24} className="text-yellow-500" />
-          ) : (
-            <FaRegStar size={24} className="text-gray-400" />
-          )}
-        </div>
-      )}
+      <style jsx>{`
+        .title {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2; /* Number of lines to show */
+          -webkit-box-orient: vertical;
+        }
+      `}</style>
     </div>
   );
 };

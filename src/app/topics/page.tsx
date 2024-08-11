@@ -112,7 +112,17 @@ if(checkUserTimestamp()){
           <div className="text-white">Loading...</div> {/* Your loading indicator */}
         </div>
       ) : (
-        <div className='flex flex-col gap-4 mt-9'>
+        <div className='flex flex-col gap-4 mt-9 text-white'>
+          <div className='flex flex-row justify-evenly'>
+          <div>
+          Name
+            </div> 
+            <div >
+            Day
+            </div>
+          </div>
+         
+            
           {topics.map((topic: any) => (
             <TopicInd key={topic.id} day={topic.Day} name={topic.name} id={topic.id} />
           ))}
