@@ -10,6 +10,7 @@ const Page = () => {
   const [total, setTotal] = useState(1225); // Example total questions
   const [solvedQuestions, setSolvedQuestions] = useState<any[]>([]);
   const [revisionQuestions, setRevisionQuestions] = useState<any[]>([]);
+  // const [addedQuestions, setAddedQuestions] = useState<any[]>([]); // State for storing added questions
 
   function checkUserTimestamp() {
     const currentTime = Date.now();
@@ -27,7 +28,6 @@ const Page = () => {
       }
     } else {
       // If no user item exists, create it with the current timestamp
-
       localStorage.setItem("user", JSON.stringify({ message: "userCreated succ", timestamp: currentTime }));
       return false;
     }
@@ -37,8 +37,8 @@ const Page = () => {
     const createUser = async () => {
       if (user) {
 
-        if(checkUserTimestamp()){
-          return ;
+        if (checkUserTimestamp()) {
+          return;
         }
 
         try {
@@ -50,7 +50,7 @@ const Page = () => {
             body: JSON.stringify({
               name: user.fullName,
               email: user.emailAddresses[0]?.emailAddress,
-              clerkUserId:user.id
+              clerkUserId: user.id
             }),
           });
 
@@ -80,11 +80,9 @@ const Page = () => {
           }
           
           const data = await response.json();
-          console.log("******");
-          console.log(data);
           setSolvedQuestions(data);
           setSolved(data.length); // Update the solved count based on the fetched data
-          localStorage.setItem("totalQuestion",data.length);
+          localStorage.setItem("totalQuestion", data.length);
         } catch (error) {
           console.error('Error fetching solved questions:', error);
         }
@@ -115,6 +113,33 @@ const Page = () => {
     fetchRevisionQuestions();
   }, [user]);
 
+  // New effect to fetch all added questions
+  // useEffect(() => {
+  //   const fetchAddedQuestions = async () => {
+  //     if (user) {
+  //       try {
+  //         const response = await fetch(`https://dsa-backend-lr95.onrender.com/alladdedquestions`, {
+  //           method: 'GET',
+  //           headers: {
+  //             "clerkUserId":user.id// Assuming you pass user ID as the token
+  //           },
+  //         });
+
+  //         if (!response.ok) {
+  //           throw new Error('Failed to fetch added questions');
+  //         }
+
+  //         const data = await response.json();
+  //         setAddedQuestions(data);
+  //       } catch (error) {
+  //         console.error('Error fetching added questions:', error);
+  //       }
+  //     }
+  //   };
+
+  //   fetchAddedQuestions();
+  // }, [user]);
+
   if (!user) {
     return <div className="min-h-screen bg-black text-white flex items-center justify-center">Loading...</div>;
   }
@@ -140,45 +165,62 @@ const Page = () => {
         />
       </div>
 
-<div className='flex flex-row justify-evenly gap-6 flex-wrap'>
+      <div className='flex flex-row justify-evenly gap-6 flex-wrap'>
+        <div className="flex flex-col w-full items-center justify-evenly">
+          {solvedQuestions.length === 0 ? (
+            <p className="text-lg text-gray-400">No questions have been solved yet.</p>
+          ) : (
+          <>
+            <h1 className="text-2xl font-semibold mb-4">Solved Questions</h1>
+            <div className='gap-4 flex flex-row flex-wrap'>
+              {solvedQuestions.map((question) => (
+                <IndQuestion 
+                  isProfile={true}
+                  key={question.id}
+                  name={question.name}
+                  link={question.link}
+                  id={question.id}
+                />
+              ))}
+            </div>
+          </>)}
+        </div>
 
+        <h1 className="text-2xl font-semibold mb-4">Revision Questions</h1>
+        <div className="flex flex-row w-full flex-wrap items-center justify-evenly mt-8 gap-4">
+          {revisionQuestions.length === 0 ? (
+            <p className="text-lg text-gray-400">No revision questions yet.</p>
+          ) : (
+            revisionQuestions.map((question) => (
+              <IndQuestion 
+                isProfile={true}
+                key={question.id}
+                name={question.question.name}
+                link={question.question.link}
+                id={question.id}
+              />
+            ))
+          )}
+        </div>
 
-
-      <div className="flex flex-col w-full items-center justify-evenly">
-        {solvedQuestions.length === 0 ? (
-          <p className="text-lg text-gray-400">No questions have been solved yet.</p>
-        ) : (
-        <>
-          <h1 className="text-2xl font-semibold mb-4">Solved Questions</h1>
-        <div className=' gap-4 flex flex-row flex-wrap align-middle'>
-       {   solvedQuestions.map((question) => (
-            <IndQuestion 
-            isProfile={true}
-              key={question.id}
-              name={question.name}
-              link={question.link}
-              id={question.id}
-            />
-          ))}</div>
-       </> )}
+        {/* <h1 className="text-2xl font-semibold mb-4">Added Questions</h1>
+        <div className="flex flex-row w-full flex-wrap items-center justify-evenly mt-8 gap-4">
+          {addedQuestions.length === 0 ? (
+            <p className="text-lg text-gray-400">No added questions yet.</p>
+          ) : (
+            addedQuestions.map((question) => (
+              <IndQuestion 
+                isProfile={true}
+                key={question.id}
+                name={question.name}
+                link={question.link}
+                id={question.id}
+              />
+            ))
+          )}
+        </div> */}
       </div>
-      <h1 className="text-2xl font-semibold mb-4">Revision Questions</h1>
-      <div className="flex flex-row w-full flex-wrap items-center justify-evenly mt-8 gap-4">
-        {revisionQuestions.length === 0 ? (
-          <p className="text-lg text-gray-400">No revision questions yet.</p>
-        ) : (
-          revisionQuestions.map((question) => (
-            <IndQuestion 
-            isProfile={true}
-              key={question.id}
-              name={question.question.name}
-              link={question.question.link}
-              id={question.id}
-            />
-          ))
-        )}
-      </div>
-    </div></div>
+    </div>
   );
 };
 
