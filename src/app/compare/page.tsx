@@ -6,7 +6,7 @@ import { AnimatedCircularProgressBarDemo } from '@/webcomponents/User/CircularPr
 
 const Page = () => {
   const { user } = useUser();
-  const [solved, setSolved] = useState<any>(localStorage.getItem("totalQuestion")||9); // Example solved questions
+  const [solved, setSolved] = useState<any>(localStorage.getItem("totalQuestion")||0); // Example solved questions
   const [total, setTotal] = useState(1225); // Example total questions
   const [comparedEmails, setComparedEmails] = useState<string>(""); // Comma-separated emails
   const [comparedUsers, setComparedUsers] = useState<any[]>([]); // List of compared users

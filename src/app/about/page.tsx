@@ -50,9 +50,7 @@ const DeveloperPage = () => {
           </a>
         </div>
       </main>
-      <footer className="py-4">
-        <p className="text-gray-500">© 2024 Your Company</p>
-      </footer>
+
     </div>
   );
 };
