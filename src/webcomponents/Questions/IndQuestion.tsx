@@ -200,7 +200,8 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
   };
 
   return (
-    <div className="flex flex-row justify-evenly items-center p-6 flex-wrap align-middle bg-gray-800 rounded-lg shadow-lg">
+    <div className="flex flex-row justify-evenly items-center p-6 flex-wrap align-middle bg-gray-800 rounded-lg shadow-lg ">
+     
       <a target="_blank" href={`${link}`}>
         <ShineBorder
           className="bg-black text-white mb-4"
@@ -247,7 +248,8 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-          <div className="flex items-center">
+          <div className="flex items-center gap-4 ">
+
             <input
               type="checkbox"
               id="terms"

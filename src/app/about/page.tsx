@@ -31,7 +31,7 @@ const DeveloperPage = () => {
         </div>
         <div className="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-lg max-w-xs">
           <img
-            src="https://media.licdn.com/dms/image/D4D35AQGa_N9tJ2kYiw/profile-framedphoto-shrink_200_200/0/1698174262688?e=1723359600&v=beta&t=AS8VqbfSSwwFVuMV5QqT20sIqMCnXwGzU4NvRypMzvE"
+            src="https://media.licdn.com/dms/image/v2/D4D35AQGa_N9tJ2kYiw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1698174262688?e=1723993200&v=beta&t=s2p1Po6XPnojQKwfTtYx0Ay_PsD3zAuTWGgchIhnhrs"
             alt="Vishal Aggarwal"
             className="w-32 h-32 rounded-full mb-4 border-4 border-blue-500"
           />

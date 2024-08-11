@@ -144,11 +144,13 @@ const Page = () => {
 
 
 
-      <div className="flex flex-col w-full items-center justify-evenly ">
+      <div className="flex flex-col w-full items-center justify-evenly">
         {solvedQuestions.length === 0 ? (
           <p className="text-lg text-gray-400">No questions have been solved yet.</p>
-        ) : (<>
-          <h1 className="text-2xl font-semibold mb-4">solved Questions</h1>
+        ) : (
+        <>
+          <h1 className="text-2xl font-semibold mb-4">Solved Questions</h1>
+        <div className=' gap-4 flex flex-row flex-wrap align-middle'>
        {   solvedQuestions.map((question) => (
             <IndQuestion 
             isProfile={true}
@@ -157,12 +159,11 @@ const Page = () => {
               link={question.link}
               id={question.id}
             />
-          ))}</>
-        )}
+          ))}</div>
+       </> )}
       </div>
-
-      <div className="flex flex-col w-full items-center justify-evenly mt-8">
-        <h1 className="text-2xl font-semibold mb-4">Revision Questions</h1>
+      <h1 className="text-2xl font-semibold mb-4">Revision Questions</h1>
+      <div className="flex flex-row w-full flex-wrap items-center justify-evenly mt-8 gap-4">
         {revisionQuestions.length === 0 ? (
           <p className="text-lg text-gray-400">No revision questions yet.</p>
         ) : (
