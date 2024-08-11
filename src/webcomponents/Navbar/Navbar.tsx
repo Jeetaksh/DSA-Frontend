@@ -16,7 +16,7 @@ import { usePathname } from 'next/navigation'
 const Navbar = () => {
   const { isLoaded, userId } = useAuth();
   const [isMobile, setIsMobile] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null);
+  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -48,101 +48,112 @@ const Navbar = () => {
   ) : (
     <div className={`relative bg-black flex-wrap flex flex-row`}>
       <Dock magnification={60} distance={100} className="flex flex-row gap-9 text-white">
-        
         <DockIcon
-          className={`${isActive('/') ? 'text-yellow-500' : ''} relative`}
-          onMouseEnter={() => setHovered('home')}
-          onMouseLeave={() => setHovered(null)}
+        
+          className={isActive('/') ? 'text-yellow-500' : ''}
         >
           <Link href={"/"} >
-            <IoHomeSharp size={24} />
+          <div   onMouseEnter={() => setHoveredIcon('Home')}
+          onMouseLeave={() => setHoveredIcon(null)}>
+
+          <IoHomeSharp size={24} />
+
+          </div>
           </Link>
-          {hovered === 'home' && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black text-white text-sm px-2 py-1 rounded">
+          {hoveredIcon === 'Home' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
               Home
             </div>
           )}
         </DockIcon>
-
         <DockIcon
-          className={`${isActive('/topics') ? 'text-yellow-500' : ''} relative`}
-          onMouseEnter={() => setHovered('100days')}
-          onMouseLeave={() => setHovered(null)}
+     
+          className={isActive('/topics') ? 'text-yellow-500' : ''}
         >
           <Link href={"/topics"}>
-            <MdTopic size={24} />
+          <div      onMouseEnter={() => setHoveredIcon('100days')}
+          onMouseLeave={() => setHoveredIcon(null)}>
+             <MdTopic size={24} />
+          </div>
+           
           </Link>
-          {hovered === '100days' && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black text-white text-sm px-2 py-1 rounded">
+          {hoveredIcon === '100days' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
               100days
             </div>
           )}
         </DockIcon>
-
         <DockIcon
-          className={`${isActive(`/profile/${userId}`) ? 'text-yellow-500' : ''} relative`}
-          onMouseEnter={() => setHovered('profile')}
-          onMouseLeave={() => setHovered(null)}
+        
+          className={isActive(`/profile/${userId}`) ? 'text-yellow-500' : ''}
         >
           <Link href={`/profile/${userId}`}>
-            <SiVirustotal size={24} />
+          <div   onMouseEnter={() => setHoveredIcon('Profile')}
+          onMouseLeave={() => setHoveredIcon(null)}>
+          <SiVirustotal size={24} />
+
+          </div>
           </Link>
-          {hovered === 'profile' && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black text-white text-sm px-2 py-1 rounded">
+          {hoveredIcon === 'Profile' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
               Profile
             </div>
           )}
         </DockIcon>
-
         <DockIcon
-          className={`${isActive('/company') ? 'text-yellow-500' : ''} relative`}
-          onMouseEnter={() => setHovered('company')}
-          onMouseLeave={() => setHovered(null)}
+        
+          className={isActive('/company') ? 'text-yellow-500' : ''}
         >
           <Link href={`/company`}>
-            <FaIndustry size={24} />
+          <div   onMouseEnter={() => setHoveredIcon('Company')}
+          onMouseLeave={() => setHoveredIcon(null)}>
+          <FaIndustry size={24} />
+
+          </div>
           </Link>
-          {hovered === 'company' && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black text-white text-sm px-2 py-1 rounded">
+          {hoveredIcon === 'Company' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
               Company
             </div>
           )}
         </DockIcon>
-
         <DockIcon
-          className={`${isActive('/compare') ? 'text-yellow-500' : ''} relative`}
-          onMouseEnter={() => setHovered('compare')}
-          onMouseLeave={() => setHovered(null)}
+         
+          className={isActive('/compare') ? 'text-yellow-500' : ''}
         >
           <Link href={`/compare`}>
+          <div  onMouseEnter={() => setHoveredIcon('Compare')}
+          onMouseLeave={() => setHoveredIcon(null)}>
             <FaCodeCompare size={24} />
+
+          </div>
           </Link>
-          {hovered === 'compare' && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black text-white text-sm px-2 py-1 rounded">
+          {hoveredIcon === 'Compare' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
               Compare
             </div>
           )}
         </DockIcon>
-
         <DockIcon
-          className={`${isActive('/about') ? 'text-yellow-500' : ''} relative`}
-          onMouseEnter={() => setHovered('about')}
-          onMouseLeave={() => setHovered(null)}
+          
+          className={isActive('/about') ? 'text-yellow-500' : ''}
         >
           <Link href={`/about`}>
+          <div onMouseEnter={() => setHoveredIcon('About')}
+          onMouseLeave={() => setHoveredIcon(null)}>
             <AiFillBuild size={24} />
+
+          </div>
           </Link>
-          {hovered === 'about' && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black text-white text-sm px-2 py-1 rounded">
+          {hoveredIcon === 'About' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
               About
             </div>
           )}
         </DockIcon>
-
         <DockIcon>
           <SearchButton />
         </DockIcon>
-        
         <DockIcon>
           {userId ? <UserButton /> : <SignInButton />}
         </DockIcon>
