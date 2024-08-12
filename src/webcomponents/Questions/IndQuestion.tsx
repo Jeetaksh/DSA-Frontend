@@ -109,6 +109,7 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
         body: JSON.stringify({
           content: noteContent,
           questionId: id,
+          clerkUserId:user.id
         }),
       });
 
@@ -144,7 +145,8 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
           },
           body: JSON.stringify({
             questionId: id,
-            add: isChecked, // Indicates whether to add or remove the question
+            add: isChecked, 
+            clerkUserId:user.id// Indicates whether to add or remove the question
           }),
         }
       );
@@ -178,7 +180,8 @@ const IndQuestion = ({ name, link, id, isProfile = false }: any) => {
         body: JSON.stringify({
           questionId: id,
           email: user.emailAddresses[0]?.emailAddress,
-          add: newStatus, // Indicates whether to add or remove the question from revision
+          add: newStatus, 
+          clerkUserId:user.id// Indicates whether to add or remove the question from revision
         }),
       });
 
