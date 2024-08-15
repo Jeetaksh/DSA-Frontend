@@ -53,6 +53,10 @@ const Navbar = () => {
   ) : (
     <div className={`relative bg-black flex-wrap flex flex-row`}>
       <Dock magnification={60} distance={100} className="flex flex-row gap-9 text-white">
+
+
+
+
         <DockIcon
         
           className={isActive('/') ? 'text-yellow-500' : ''}
@@ -71,6 +75,47 @@ const Navbar = () => {
             </div>
           )}
         </DockIcon>
+
+        <DockIcon
+        
+        className={isActive(`/profile/${userId}`) ? 'text-yellow-500' : ''}
+      >
+        <Link href={`/profile/${userId}`}>
+        <div   onMouseEnter={() => setHoveredIcon('Profile')}
+        onMouseLeave={() => setHoveredIcon(null)}>
+        <SiVirustotal size={24} />
+
+        </div>
+        </Link>
+        {hoveredIcon === 'Profile' && (
+          <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
+            Profile
+          </div>
+        )}
+      </DockIcon>
+
+      <DockIcon
+         
+         className={isActive('/compare') ? 'text-yellow-500' : ''}
+       >
+         <Link href={`/compare`}>
+         <div  onMouseEnter={() => setHoveredIcon('Compare')}
+         onMouseLeave={() => setHoveredIcon(null)}>
+           <FaCodeCompare size={24} />
+
+         </div>
+         </Link>
+         {hoveredIcon === 'Compare' && (
+           <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
+             Compare
+           </div>
+         )}
+       </DockIcon>
+
+
+
+
+
         <DockIcon
      
           className={isActive('/topics') ? 'text-yellow-500' : ''}
@@ -88,23 +133,11 @@ const Navbar = () => {
             </div>
           )}
         </DockIcon>
-        <DockIcon
-        
-          className={isActive(`/profile/${userId}`) ? 'text-yellow-500' : ''}
-        >
-          <Link href={`/profile/${userId}`}>
-          <div   onMouseEnter={() => setHoveredIcon('Profile')}
-          onMouseLeave={() => setHoveredIcon(null)}>
-          <SiVirustotal size={24} />
 
-          </div>
-          </Link>
-          {hoveredIcon === 'Profile' && (
-            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
-              Profile
-            </div>
-          )}
-        </DockIcon>
+
+
+   
+
         <DockIcon
         
           className={isActive('/company') ? 'text-yellow-500' : ''}
@@ -122,40 +155,8 @@ const Navbar = () => {
             </div>
           )}
         </DockIcon>
-        <DockIcon
-         
-          className={isActive('/compare') ? 'text-yellow-500' : ''}
-        >
-          <Link href={`/compare`}>
-          <div  onMouseEnter={() => setHoveredIcon('Compare')}
-          onMouseLeave={() => setHoveredIcon(null)}>
-            <FaCodeCompare size={24} />
-
-          </div>
-          </Link>
-          {hoveredIcon === 'Compare' && (
-            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
-              Compare
-            </div>
-          )}
-        </DockIcon>
-        <DockIcon
-          
-          className={isActive('/about') ? 'text-yellow-500' : ''}
-        >
-          <Link href={`/about`}>
-          <div onMouseEnter={() => setHoveredIcon('About')}
-          onMouseLeave={() => setHoveredIcon(null)}>
-            <AiFillBuild size={24} />
-
-          </div>
-          </Link>
-          {hoveredIcon === 'About' && (
-            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
-              About
-            </div>
-          )}
-        </DockIcon>
+   
+     
 
         <DockIcon
           
@@ -174,6 +175,8 @@ const Navbar = () => {
             </div>
           )}
         </DockIcon>
+
+
 
 
 
@@ -201,6 +204,27 @@ const Navbar = () => {
 
         <DockIcon>
           <SearchButton />
+        </DockIcon>
+
+
+
+
+        <DockIcon
+          
+          className={isActive('/about') ? 'text-yellow-500' : ''}
+        >
+          <Link href={`/about`}>
+          <div onMouseEnter={() => setHoveredIcon('About')}
+          onMouseLeave={() => setHoveredIcon(null)}>
+            <AiFillBuild size={24} />
+
+          </div>
+          </Link>
+          {hoveredIcon === 'About' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
+              About
+            </div>
+          )}
         </DockIcon>
 
 
