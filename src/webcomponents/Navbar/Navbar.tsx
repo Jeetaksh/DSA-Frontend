@@ -12,6 +12,11 @@ import ResponsiveNav from "./ResponsiveNav";
 import Link from "next/link";
 import { SearchButton } from "./Search";
 import { usePathname } from 'next/navigation'
+import { FaBook } from "react-icons/fa6";
+import { IoAddCircleSharp } from "react-icons/io5";
+
+
+
 
 const Navbar = () => {
   const { isLoaded, userId } = useAuth();
@@ -151,13 +156,65 @@ const Navbar = () => {
             </div>
           )}
         </DockIcon>
+
+        <DockIcon
+          
+          className={isActive('/allmyquestions') ? 'text-yellow-500' : ''}
+        >
+          <Link href={`/allmyquestions`}>
+          <div onMouseEnter={() => setHoveredIcon('allmyquestions')}
+          onMouseLeave={() => setHoveredIcon(null)}>
+            <FaBook size={24} />
+
+          </div>
+          </Link>
+          {hoveredIcon === 'allmyquestions' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
+              AllMyquestions
+            </div>
+          )}
+        </DockIcon>
+
+
+
+
+        <DockIcon
+          
+          className={isActive('/addquestion') ? 'text-yellow-500' : ''}
+        >
+          <Link href={`/addquestion`}>
+          <div onMouseEnter={() => setHoveredIcon('addquestion')}
+          onMouseLeave={() => setHoveredIcon(null)}>
+            <IoAddCircleSharp size={24} />
+
+          </div>
+          </Link>
+          {hoveredIcon === 'addquestion' && (
+            <div className="absolute bg-gray-700 text-white p-1 rounded-md text-xs top-full mt-1 left-1/2 transform -translate-x-1/2">
+              AddMyQuestion
+            </div>
+          )}
+        </DockIcon>
+
+
+
+
         <DockIcon>
           <SearchButton />
         </DockIcon>
+
+
+
+
         <DockIcon>
           {userId ? <UserButton /> : <SignInButton />}
         </DockIcon>
+
+
+
+
       </Dock>
+
     </div>
   );
 };

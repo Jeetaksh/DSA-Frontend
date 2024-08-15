@@ -6,7 +6,9 @@ const isProtectedRoute = createRouteMatcher([
   "/company",
   "/compare",
   "/search",
-  "/profile/null"
+  "/profile/null",
+  "/allmyquestions",
+  "/addquestion"
   ,
 ]);
 

@@ -10,6 +10,9 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
+  import { FaBook } from "react-icons/fa6";
+import { IoAddCircleSharp } from "react-icons/io5";
+
   import { Button } from "@/components/ui/button"
   import { IoHomeSharp } from "react-icons/io5";  // Ensure this import is correct
   import { UserButton ,useAuth} from '@clerk/nextjs';
@@ -65,13 +68,25 @@ const ResponsiveNav = () => {
           </Link>
 
           <SearchButton></SearchButton>
-
-
           <Link href={`/about`}>
         <AiFillBuild size={24} />
           </Link>
 
+
+          <Link href={`/allmyquestions`}>
+        <FaBook size={24} />
+          </Link>
+
+
+          <Link href={`/addquestion`}>
+        <IoAddCircleSharp size={24} />
+          </Link>
+
+
+
           {    userId?     <UserButton/>:<SignInButton />}
+
+
 
           <AlertDialogCancel>Cancel</AlertDialogCancel>
      
