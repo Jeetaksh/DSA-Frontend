@@ -35,7 +35,7 @@ const Page = () => {
     }, [user]);
 
     // Conditional rendering based on user and loading state
-    if (!user || loading) {
+    if (!user || loading||error) {
         return (
             <div className="min-h-screen bg-black text-white flex items-center justify-center">
                 <div className="flex flex-col items-center">
@@ -46,13 +46,6 @@ const Page = () => {
         );
     }
 
-    if (error) {
-        return (
-            <div className="min-h-screen bg-black text-white flex items-center justify-center">
-                <p>{error}</p>
-            </div>
-        );
-    }
 
     return (
         <div className="bg-black min-h-screen">

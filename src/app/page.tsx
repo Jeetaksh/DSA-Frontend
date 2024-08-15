@@ -54,6 +54,7 @@ const Page = () => {
       <div className="flex flex-col justify-center items-center  w-full md:w-2/5">
         <IconCloud iconSlugs={slugs} />
       </div>
+      
     </div>
   );
 };

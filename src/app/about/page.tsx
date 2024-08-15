@@ -5,9 +5,30 @@ import { FaLinkedin } from 'react-icons/fa'; // Import LinkedIn icon
 const DeveloperPage = () => {
   return (
     <div className="bg-black min-h-screen flex flex-col items-center text-white">
-      <header className="py-8">
-        <h1 className="text-4xl font-bold">Meet Our Developers</h1>
+      
+      <section className="  mt-10 align-middle justify-center py-8 px-4  rounded-lg ">
+        <h2 className="text-3xl  font-semibold text-yellow-400">Unlock Your Coding Potential</h2>
+        <p className="text-lg text-gray-300 mt-4">
+          100-Day DSA Mastery: Follow our structured day-wise plan to master data structures and algorithms in just 100 days.
+        </p>
+        <p className="text-lg text-gray-300 mt-2">
+          Top Company Questions: Access top SQL and interview questions from leading tech companies.
+        </p>
+        <p className="text-lg text-gray-300 mt-2">
+          Track Your Progress: Mark problems as solved, schedule revisions, and add notes with our intuitive UI.
+        </p>
+        <p className="text-lg text-gray-300 mt-2">
+          Efficient Search: Find questions quickly with our keyword search functionality.
+        </p>
+      </section>
+
+      {/* Header Section */}
+      <header className="py-8 text-center">
+        <h1 className="text-4xl font-bold mb-4">Meet Our Developers</h1>
+
       </header>
+      
+      {/* Developers Section */}
       <main className="flex flex-wrap justify-center gap-8 p-8">
         <div className="flex flex-col items-center bg-gray-800 p-6 rounded-lg shadow-lg max-w-xs">
           <img
@@ -17,7 +38,7 @@ const DeveloperPage = () => {
           />
           <h2 className="text-xl font-semibold">Jeetaksh Gandhi</h2>
           <p className="text-gray-400 mt-2">Full Stack Developer</p>
-          <p className="text-gray-300 mt-2">
+          <p className="text-gray-300 mt-2 text-center">
             Focused on solving technical challenges and creating efficient software solutions.
           </p>
           <a
@@ -37,7 +58,7 @@ const DeveloperPage = () => {
           />
           <h2 className="text-xl font-semibold">Vishal Aggarwal</h2>
           <p className="text-gray-400 mt-2">Full Stack Developer</p>
-          <p className="text-gray-300 mt-2">
+          <p className="text-gray-300 mt-2 text-center">
             Dedicated to building reliable software and enhancing user experiences.
           </p>
           <a
@@ -51,6 +72,8 @@ const DeveloperPage = () => {
         </div>
       </main>
 
+      {/* Coding Potential Section */}
+    
     </div>
   );
 };
