@@ -37,12 +37,14 @@ const ResponsiveNav = () => {
       return <div>Loading...</div>;
     }
   return (
+    <div className='flex justify-between flex-wrap '>
+
     <AlertDialog>
     <AlertDialogTrigger asChild>
       <Button ><FaGripLines size={24} />
       </Button>
     </AlertDialogTrigger>
-    
+
     <AlertDialogContent>
       <AlertDialogHeader className=' flex-col gap-8 items-center'>
       <Link href={"/"}>
@@ -94,7 +96,6 @@ const ResponsiveNav = () => {
           </Link>
 
 
-          {    userId?     <UserButton/>:<SignInButton />}
 
 
 
@@ -104,6 +105,13 @@ const ResponsiveNav = () => {
 
     </AlertDialogContent>
   </AlertDialog>
+  <div className=' text-white'>
+
+  {    userId?  <UserButton/>:<SignInButton />}
+  </div>
+
+  </div>
+
   )
 }
 
