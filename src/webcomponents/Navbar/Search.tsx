@@ -3,13 +3,11 @@ import { Input } from "@/components/ui/input"
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
-
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-
 export function SearchButton() {
   const [searchTerm, setSearchTerm] = useState('');
 
