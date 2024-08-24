@@ -42,46 +42,56 @@ const ResponsiveNav = () => {
       <Button ><FaGripLines size={24} />
       </Button>
     </AlertDialogTrigger>
+    
     <AlertDialogContent>
       <AlertDialogHeader className=' flex-col gap-8 items-center'>
       <Link href={"/"}>
-          <IoHomeSharp size={24} />
+      <AlertDialogCancel>     <IoHomeSharp size={24} /></AlertDialogCancel>
 
           </Link>
 
           <Link href={"/topics"}>
-          <MdTopic  size={24}/>
+          <AlertDialogCancel>  <MdTopic  size={24}/></AlertDialogCancel>
           </Link>
 
 
           <Link href={`/profile/${userId}`}>
-        <SiVirustotal size={24} />
+          <AlertDialogCancel>  <SiVirustotal size={24} /></AlertDialogCancel>
           </Link>
 
 
           <Link href={`/company`}>
-        <FaIndustry size={24} />
+          <AlertDialogCancel> <FaIndustry size={24} /> </AlertDialogCancel>
+        
           </Link>
 
           <Link href={`/compare`}>
-        <FaCodeCompare size={24} />
+        <AlertDialogCancel> <FaCodeCompare size={24} />   </AlertDialogCancel>
           </Link>
 
           <SearchButton></SearchButton>
+
+
           <Link href={`/about`}>
-        <AiFillBuild size={24} />
+          <AlertDialogCancel>  <AiFillBuild size={24} />          </AlertDialogCancel>
+
           </Link>
 
 
+
           <Link href={`/allmyquestions`}>
+          <AlertDialogCancel>
         <FaBook size={24} />
+        </AlertDialogCancel>
+
           </Link>
 
 
           <Link href={`/addquestion`}>
+          <AlertDialogCancel>
         <IoAddCircleSharp size={24} />
+          </AlertDialogCancel>
           </Link>
-
 
 
           {    userId?     <UserButton/>:<SignInButton />}

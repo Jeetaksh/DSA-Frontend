@@ -1,19 +1,19 @@
-"use client";
+"use client" 
 import React from 'react';
-import { FaLinkedin } from 'react-icons/fa'; // Import LinkedIn icon
-
-const DeveloperPage = () => {
+import { FaLinkedin } from 'react-icons/fa'; 
+const DeveloperPage = ()=> {
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center text-white">
-      
+     <div className="bg-black min-h-screen flex flex-col items-center text-white">
       <section className="  mt-10 align-middle justify-center py-8 px-4  rounded-lg ">
-        <h2 className="text-3xl  font-semibold text-yellow-400">Unlock Your Coding Potential</h2>
-        <p className="text-lg text-gray-300 mt-4">
-          100-Day DSA Mastery: Follow our structured day-wise plan to master data structures and algorithms in just 100 days.
+        <h2 className="text-3xl  font-semibold text-yellow-400">Unlock Your Coding Potential</h2>  
+         <p className="text-lg text-gray-300 mt-4">
+           100-Day DSA Mastery: Follow our structured day-wise plan to master data structures and algorithms in just 100 days.
         </p>
+
         <p className="text-lg text-gray-300 mt-2">
           Top Company Questions: Access top SQL and interview questions from leading tech companies.
         </p>
+
         <p className="text-lg text-gray-300 mt-2">
           Track Your Progress: Mark problems as solved, schedule revisions, and add notes with our intuitive UI.
         </p>
@@ -21,8 +21,6 @@ const DeveloperPage = () => {
           Efficient Search: Find questions quickly with our keyword search functionality.
         </p>
       </section>
-
-      {/* Header Section */}
       <header className="py-8 text-center">
         <h1 className="text-4xl font-bold mb-4">Meet Our Developers</h1>
 
@@ -72,10 +70,10 @@ const DeveloperPage = () => {
         </div>
       </main>
 
-      {/* Coding Potential Section */}
+       {/* Coding Potential Section */}
     
     </div>
   );
 };
 
-export default DeveloperPage;
+export default  DeveloperPage;
